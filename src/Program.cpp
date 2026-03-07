@@ -56,7 +56,13 @@ void Program::Update() {
         }
 
         for (Projectile& p : Projectile::projectiles) { 
-            p.update(); 
+            if (HitBox::Collision(p.getHitBox(), player->hitBox) && (p.ID == 1)) // if this is true then call PlayerRest()
+                {
+                PlayerReset();
+                p.update(); }
+            else {
+                    p.update();
+                }
 
         }
 
