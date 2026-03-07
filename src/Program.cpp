@@ -65,6 +65,7 @@ void Program::Update() {
                 }
 
         }
+        
 
         if (lives <= 0 && pauseFrames <= 0) gameOver = true;
         Projectile::CleanProjectiles();
