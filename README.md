@@ -13,7 +13,7 @@ Don't forget that you must also fill out an evaluation form in Moodle to conside
 
 
 (802-25-8910) (Gabriel Antonio Abreu Mercado) (gabriel.abreu1@upr.edu) 
-(STUDENT NUMBER HERE) (STUDENT NAME HERE) (STUDENT EMAIL HERE)
+(802-23-4082) (Rafael Jose Granado Martinez) (rafael.granado@upr.edu)
 
 Any project that doesn't compile will receive a 0.
 
