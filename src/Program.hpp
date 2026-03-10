@@ -18,7 +18,6 @@ class Program {
         int count = 0;
         int delay = 0;
         int lives = 3;
-        int score = 0;
         int pauseFrames = 0;
 
         bool startup = true;
@@ -37,6 +36,10 @@ class Program {
         void KeyInputs();
         void PlayerReset();
         void Reset();
+        void UpdateScore();
+        inline static int score = 0;
+        
+        
           
         ~Program() {}
 };
