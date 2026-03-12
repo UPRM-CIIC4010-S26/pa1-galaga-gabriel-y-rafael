@@ -14,12 +14,17 @@ class Enemy {
         bool spawning = false;
         bool frame = false;
         int frameCooldown = 30;
-        inline static int totalScore = 0;
-        int score = 0;
+        
+        
+        
+        
         
     public:
         int health = 1;
-        // static int totalScore;
+        inline static int totalScore;
+        inline static int score = 0;
+        
+        
         std::pair<float, float> position;
         HitBox hitBox;
 
@@ -74,7 +79,7 @@ class Enemy {
                         );
                         // Program::UpdateScore(p.second->score);
                         // Program::score += p.second->score;
-                        
+                        totalScore += p.second ->score;
                         p.second = nullptr;
                     }
                 }
