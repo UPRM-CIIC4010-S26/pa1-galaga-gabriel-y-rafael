@@ -6,6 +6,7 @@ class DyEnemy : public Enemy {
         float angle = 135;
         float aimAngle = 225;
         bool loop = false;
+        int spriteType;
         
         
 
@@ -13,7 +14,8 @@ class DyEnemy : public Enemy {
         DyEnemy(float x, float y) : Enemy(x, y) { 
             this->cooldown = GetRandomValue(90, 300);
             this->health = 1;
-            this->score = 100; 
+            //this->score = 100; 
+            spriteType = GetRandomValue(0,1);
             
         }
 
