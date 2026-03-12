@@ -1,7 +1,7 @@
 #include "Program.hpp"
+#include "Enemy.hpp"
 
-
-// static int score = 0;
+static int score = 0;
 Program::Program() {
     Background::sideWalls = std::pair<HitBox, HitBox>{ 
         HitBox(0, 0, 10, GetScreenHeight()), 
@@ -88,7 +88,7 @@ void Program::Draw() {
 
     for (Projectile p : Projectile::projectiles) p.draw();
     for (std::pair<std::pair<float, float>, Enemy*>& p : Enemy::enemies) if (p.second) p.second->draw();
-    DrawText(TextFormat("Score: %i", score), GetScreenWidth() - 950, 20, 30, GRAY);
+    DrawText(TextFormat("Score: %i", Enemy::totalScore), GetScreenWidth() - 950, 20, 30, GRAY);
 
 
     if (startup) DrawStartup();
@@ -122,7 +122,7 @@ void Program::ManageEnemyRespawns() {
             }
         }
     }
-
+    
     if(respawns >= 4) {
         count = 4;
         respawns = 0;
@@ -159,10 +159,10 @@ void Program::DrawGameOver() {
 
 
 
-void Program::UpdateScore(int got) {
+// void Program::UpdateScore(int got) {
   //updates score and updates your lives    
     
-    score += got;
+    // score += got;
 
     // if (score % 1000 == 0) {
     //     if (lives == 5)
@@ -172,7 +172,7 @@ void Program::UpdateScore(int got) {
     //         lives++;
         // }
     // }
-}
+// }
 
 void Program::KeyInputs() {
     if ((!gameOver && !startup && IsKeyPressed('P')) || (paused && IsKeyPressed(KEY_ENTER))) paused = !paused;
@@ -181,7 +181,7 @@ void Program::KeyInputs() {
     if (IsKeyPressed('H')) HitBox::drawHitbox = !HitBox::drawHitbox;
 
     if (IsKeyPressed('K')){
-        score += 500;
+        Enemy::totalScore += 500;
     } 
     
     if (gameOver && IsKeyPressed(KEY_ENTER)) {
