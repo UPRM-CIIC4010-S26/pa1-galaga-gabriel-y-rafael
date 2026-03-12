@@ -9,6 +9,7 @@
 #include "SpEnemy.hpp"
 #include "StEnemy.hpp"
 #include "DyEnemy.hpp"
+#include "Enemy.hpp"
 class Program {
     private:
         Background background = Background();
@@ -36,7 +37,7 @@ class Program {
         void KeyInputs();
         void PlayerReset();
         void Reset();
-        void UpdateScore();
+        void UpdateScore(int got);
         inline static int score = 0;
         
         

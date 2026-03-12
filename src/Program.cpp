@@ -1,5 +1,7 @@
 #include "Program.hpp"
 
+
+// static int score = 0;
 Program::Program() {
     Background::sideWalls = std::pair<HitBox, HitBox>{ 
         HitBox(0, 0, 10, GetScreenHeight()), 
@@ -155,8 +157,21 @@ void Program::DrawGameOver() {
     DrawText("Press Enter", (GetScreenWidth() / 2) - 75, GetScreenHeight() / 2, 24, GRAY);
 }
 
-void Program::UpdateScore(){
-    Program::score +=100;
+
+
+void Program::UpdateScore(int got) {
+  //updates score and updates your lives    
+    
+    score += got;
+
+    // if (score % 1000 == 0) {
+    //     if (lives == 5)
+    //         lives = 5;
+
+    //     else  {
+    //         lives++;
+        // }
+    // }
 }
 
 void Program::KeyInputs() {
