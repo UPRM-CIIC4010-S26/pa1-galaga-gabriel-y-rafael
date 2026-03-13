@@ -103,6 +103,19 @@ void Program::ManageEnemyRespawns() {
     respawnCooldown -= 1;
     if (respawnCooldown <= 0) {
         respawnCooldown = 1080;
+
+       
+        if (Enemy::totalScore > 100000)  // extremly fast respawns (i prefere it like this bc i was killing them way too fast for them to respon that slow )
+            respawnCooldown -= 1000;
+
+        else if (Enemy::totalScore > 50000) 
+            respawnCooldown -=  500;
+
+        else if (Enemy::totalScore > 2000) // fa
+            respawnCooldown -= 200;
+
+        else if (Enemy::totalScore > 10000)  // s
+            respawnCooldown -= 100;
         for (std::pair<std::pair<float, float>, Enemy*>& p : Enemy::enemies) {
             if (!p.second && p.first.second != 150) {
                 int eType = GetRandomValue(1, 3);
@@ -125,7 +138,7 @@ void Program::ManageEnemyRespawns() {
     }
     
     if(respawns >= 4) {
-        count = 4;
+        count += 4;
         respawns = 0;
     }  
 
@@ -157,23 +170,6 @@ void Program::DrawGameOver() {
     DrawText("Game Over", (GetScreenWidth() / 2) - 380, 50, 144, WHITE);
     DrawText("Press Enter", (GetScreenWidth() / 2) - 75, GetScreenHeight() / 2, 24, GRAY);
 }
-
-
-
-// void Program::UpdateScore(int got) {
-  //updates score and updates your lives    
-    
-    // score += got;
-
-    // if (score % 1000 == 0) {
-    //     if (lives == 5)
-    //         lives = 5;
-
-    //     else  {
-    //         lives++;
-        // }
-    // }
-// }
 
 void Program::KeyInputs() {
     if ((!gameOver && !startup && IsKeyPressed('P')) || (paused && IsKeyPressed(KEY_ENTER))) paused = !paused;
@@ -239,5 +235,6 @@ void Program::Reset() {
     delay = 0;
     lives = 3;
     Enemy::totalScore = 0;
-    Enemy::nextThreshHold = 0;
+    Enemy::nextThreshHold = 1000;
 }
+
