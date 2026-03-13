@@ -1,7 +1,7 @@
 #include "Program.hpp"
 #include "Enemy.hpp"
 
-static int score = 0;
+// static int score = 0;
 Program::Program() {
     Background::sideWalls = std::pair<HitBox, HitBox>{ 
         HitBox(0, 0, 10, GetScreenHeight()), 
@@ -39,6 +39,7 @@ void Program::Update() {
     if (!startup && !paused && !gameOver && pauseFrames <= 0) {
         Enemy::ManageEnemies(player->hitBox);
         StdEnemy::attackReset();
+        oneUp();
         ManageEnemyRespawns();
         player->update();
 
@@ -194,7 +195,7 @@ void Program::KeyInputs() {
     }
 
     if (!startup && !paused && !gameOver && pauseFrames <= 0) player->keyInputs();
-   
+   lives;
 }
 
 void Program::PlayerReset() {
@@ -207,6 +208,16 @@ void Program::PlayerReset() {
     player->position.first = GetScreenWidth() / 2 - 15;
     pauseFrames = 120;
     lives--;
+}
+
+void Program::oneUp(){
+    if ((Enemy::totalScore >= Enemy::nextThreshHold) && lives < 6){
+        Enemy::nextThreshHold += 1000;
+        lives++;
+    }
+    else if (lives > 5) {
+            lives = 5;
+    }  
 }
 
 void Program::Reset() {
@@ -227,4 +238,6 @@ void Program::Reset() {
     count = 0;
     delay = 0;
     lives = 3;
+    Enemy::totalScore = 0;
+    Enemy::nextThreshHold = 0;
 }

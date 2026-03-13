@@ -21,6 +21,7 @@ class Enemy {
         
     public:
         int health = 1;
+        inline static int nextThreshHold = 1000;
         inline static int totalScore;
         inline static int score = 0;
         
@@ -31,10 +32,7 @@ class Enemy {
         inline static float direction = 0.5;
         inline static int directionChange = 100;
         inline static std::vector<std::pair<std::pair<float, float>, Enemy*>> enemies;
-        // int getTotalScore(){
-        //    return this -> totalScore;
-        // }
-
+        
         Enemy() {}
 
         Enemy(float x, float y) {
@@ -77,9 +75,7 @@ class Enemy {
                         Animation::animations.push_back(
                             Animation(p.second->position.first, p.second->position.second, 155, 0, 33, 33, 30, 30, 4, ImageManager::SpriteSheet)
                         );
-                        // Program::UpdateScore(p.second->score);
-                        // Program::score += p.second->score;
-                        totalScore += p.second ->score;
+                        totalScore += p.second ->score;           
                         p.second = nullptr;
                     }
                 }

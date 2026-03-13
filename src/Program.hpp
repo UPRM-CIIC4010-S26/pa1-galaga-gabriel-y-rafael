@@ -37,6 +37,7 @@ class Program {
         void KeyInputs();
         void PlayerReset();
         void Reset();
+        void oneUp();
         // void UpdateScore(int got);
         // inline static int score = 0;
         
