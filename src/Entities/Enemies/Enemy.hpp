@@ -32,7 +32,7 @@ class Enemy {
         inline static float direction = 0.5;
         inline static int directionChange = 100;
         inline static std::vector<std::pair<std::pair<float, float>, Enemy*>> enemies;
-        
+
         Enemy() {}
 
         Enemy(float x, float y) {
