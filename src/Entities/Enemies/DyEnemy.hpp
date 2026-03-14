@@ -6,7 +6,7 @@ class DyEnemy : public Enemy {
         float angle = 135;
         float aimAngle = 225;
         bool loop = false;
-        int spriteType;
+        int spriteType;  // stores which texture this DyEnemy will use
         
         
 
@@ -15,7 +15,8 @@ class DyEnemy : public Enemy {
             this->cooldown = GetRandomValue(90, 300);
             this->health = 1;
             //this->score = 100; 
-            spriteType = GetRandomValue(0,1);
+            spriteType = GetRandomValue(0,1);  //randomly choose between two textures
+}
             
         }
 

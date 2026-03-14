@@ -14,9 +14,9 @@ void DyEnemy::draw() {
     Rectangle source;
 
     if (spriteType == 0)
-        source = Rectangle{2, 128, 13, 14};
+        source = Rectangle{2, 128, 13, 14}; //first texture option
     else
-        source = Rectangle{2, 147, 13, 13};
+        source = Rectangle{2, 147, 13, 13}; //second texture option
 
     DrawTexturePro(ImageManager::SpriteSheet, source,
         Rectangle{this->position.first + 15, this->position.second + 15, 30, 30},
