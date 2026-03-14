@@ -18,7 +18,7 @@ class DyEnemy : public Enemy {
             spriteType = GetRandomValue(0,1);  //randomly choose between two textures
 }
             
-        }
+        
 
         void draw() override;
         void update(std::pair<float, float> pos, HitBox target) override;
